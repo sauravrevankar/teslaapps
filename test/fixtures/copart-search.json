@@ -1,0 +1,11 @@
+{
+  "data": {
+    "results": {
+      "totalElements": 2,
+      "content": [
+        { "ln": 71554684, "ld": "2023 TESLA MODEL 3", "lcy": 2023, "mkn": "TESLA", "lm": "MODEL 3", "orr": 18450, "dd": "FRONT END", "td": "SALVAGE CERTIFICATE", "hb": 9800, "ad": 1790600000000, "yn": "CA - SAN DIEGO", "fv": "5YJ3E1EA7PF******" },
+        { "ln": 70011223, "ld": "2021 TESLA MODEL Y", "lcy": 2021, "mkn": "TESLA", "lm": "MODEL Y", "orr": 42100, "dd": "HAIL", "td": "CLEAN TITLE", "hb": 17250, "ad": 1790700000000, "yn": "TX - DALLAS", "fv": "7SAYGDEF5MF123456" }
+      ]
+    }
+  }
+}

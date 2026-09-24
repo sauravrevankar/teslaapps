@@ -1,0 +1,7 @@
+{
+  "auctions": [
+    { "id": "K1NJ48pj", "title": "2024 Tesla Cybertruck Foundation Series", "sub_title": "Dual-Motor AWD, FSD, Stainless", "year": 2024, "make": "Tesla", "model": "Cybertruck", "mileage": "6,200", "location": "Austin, TX 78701", "current_bid": 72000, "bid_count": 31, "auction_end": "2026-09-26T19:30:00Z", "no_reserve": false, "status": "live" },
+    { "id": "rMp0qX1R", "title": "2012 Tesla Model S P85 Signature", "year": 2012, "make": "Tesla", "model": "Model S", "mileage": 88300, "location": "Seattle, WA", "current_bid": 41000, "bid_count": 17, "auction_end": 1790500000, "no_reserve": true, "status": "sold", "sale_price": 43500 },
+    { "id": "zzPorsch", "title": "2019 Porsche Taycan", "make": "Porsche", "model": "Taycan", "current_bid": 60000 }
+  ]
+}

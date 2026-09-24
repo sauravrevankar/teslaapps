@@ -1,0 +1,15 @@
+{
+  "_note": "A source only runs when grantedBy and grantedOn are filled in. Keep the written confirmation (email) on file and set writtenConfirmation to true once you have it.",
+  "carsandbids": {
+    "grantedBy": "",
+    "grantedOn": "",
+    "scope": "Live and recent Tesla auction facts (title, year, mileage, current bid, end time, result) shown with a link back to the listing. No photos or descriptions.",
+    "writtenConfirmation": false
+  },
+  "copart": {
+    "grantedBy": "",
+    "grantedOn": "",
+    "scope": "Tesla lot facts (year, model, odometer, damage, title type, high bid, sale date, yard) shown with a link back to the lot. No photos.",
+    "writtenConfirmation": false
+  }
+}

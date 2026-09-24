@@ -2,12 +2,18 @@
   "name": "teslaapps",
   "version": "0.1.0",
   "private": true,
-  "description": "Develop Tesla Fleet API apps without owning a Tesla: a local mock server plus a client that works against both the mock and the real API.",
+  "description": "Tesla app tooling: a Fleet API mock and client, the TesBids site prototype, and the auction collector.",
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "mock": "node mock-server/server.js",
     "demo": "node examples/demo.js",
-    "test": "node --test test/*.test.js"
+    "test": "node --test test/*.test.js",
+    "collect": "node collector/run.js"
+  },
+  "dependencies": {
+    "playwright-core": "^1.56.1"
   }
 }
