@@ -1,0 +1,1309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TesBids · Tesla auctions, verified</title>
+<meta name="description" content="Bid on Teslas with FSD, Supercharging, hardware and title checked before the first bid. Listings sync with TeslaTracker.">
+<meta property="og:title" content="TesBids · Tesla auctions, verified">
+<meta property="og:description" content="Bid on Teslas with FSD, Supercharging, hardware and title checked before the first bid.">
+<meta property="og:image" content="assets/hero-dark.jpg">
+<meta name="theme-color" content="#0B0E12">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0E12'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='34' fill='%23F23C2E'%3ETB%3C/text%3E%3C/svg%3E">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Figtree:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@500;800&display=swap">
+<style>
+/* Chrome is the default (dark) look; Salt is its light mode. The page follows the
+   viewer's theme unless the in-page switch pins one. */
+:root {
+  color-scheme: dark;
+  --bg: #0B0E12;
+  --panel: #12161C;
+  --panel-2: #181D24;
+  --ink: #E8ECEF;
+  --muted: #8C97A3;
+  --line: rgba(200, 215, 230, 0.13);
+  --accent: #F23C2E;
+  --accent-strong: #D92B1C;
+  --accent-ink: #FFFFFF;
+  --hot: #F23C2E;
+  --silver: #C3CCD5;
+  --good: #6EE7B7;
+  --warn: #FFC857;
+  --glass: rgba(11, 14, 18, 0.55);
+  --media-dark: 1;
+  --media-light: 0;
+  --display-family: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]):not([data-mode="dark"]) {
+  color-scheme: light;
+    --bg: #E9EEF0;
+    --panel: #F6F8F9;
+    --panel-2: #FFFFFF;
+    --ink: #0F1519;
+    --muted: #53606A;
+    --line: rgba(15, 21, 25, 0.13);
+    --accent: #C42A1A;
+    --accent-strong: #D02E1D;
+    --accent-ink: #FFFFFF;
+    --hot: #C42A1A;
+    --silver: #56636D;
+    --good: #0F8A5F;
+    --warn: #A86A12;
+    --glass: rgba(246, 248, 249, 0.74);
+    --media-dark: 0;
+    --media-light: 1;
+  }
+}
+:root[data-theme="light"]:not([data-mode="dark"]),
+:root[data-mode="light"] {
+  color-scheme: light;
+  --bg: #E9EEF0;
+  --panel: #F6F8F9;
+  --panel-2: #FFFFFF;
+  --ink: #0F1519;
+  --muted: #53606A;
+  --line: rgba(15, 21, 25, 0.13);
+  --accent: #C42A1A;
+  --accent-strong: #D02E1D;
+  --accent-ink: #FFFFFF;
+  --hot: #C42A1A;
+  --silver: #56636D;
+  --good: #0F8A5F;
+  --warn: #A86A12;
+  --glass: rgba(246, 248, 249, 0.74);
+  --media-dark: 0;
+  --media-light: 1;
+}
+:root[data-mode="dark"] {
+  color-scheme: dark;
+  --bg: #0B0E12;
+  --panel: #12161C;
+  --panel-2: #181D24;
+  --ink: #E8ECEF;
+  --muted: #8C97A3;
+  --line: rgba(200, 215, 230, 0.13);
+  --accent: #F23C2E;
+  --accent-strong: #D92B1C;
+  --accent-ink: #FFFFFF;
+  --hot: #F23C2E;
+  --silver: #C3CCD5;
+  --good: #6EE7B7;
+  --warn: #FFC857;
+  --glass: rgba(11, 14, 18, 0.55);
+  --media-dark: 1;
+  --media-light: 0;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 15px/1.55 "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color .4s ease, color .4s ease;
+}
+a { color: inherit; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 6px; }
+.mono { font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace; font-variant-numeric: tabular-nums; }
+.wrap { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 20px; }
+@media (max-width: 480px) { .wrap { padding-inline: 16px; } }
+
+/* ---------- Header ---------- */
+.bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: var(--glass);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  border-bottom: 1px solid var(--line);
+}
+.bar-in { display: flex; align-items: center; gap: 24px; min-height: 60px; }
+.wordmark {
+  font-family: var(--display-family); font-weight: 800; font-stretch: 75%;
+  font-size: 24px; letter-spacing: -0.02em; text-decoration: none; white-space: nowrap;
+}
+.wordmark b { color: var(--accent); font-weight: inherit; }
+.nav { display: flex; gap: 20px; margin-right: auto; }
+.nav a { text-decoration: none; color: var(--muted); font-weight: 500; }
+.nav a:hover { color: var(--ink); }
+.look { display: flex; align-items: center; gap: 8px; }
+.look-label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.seg { display: flex; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); }
+.seg button {
+  display: flex; align-items: center; gap: 6px;
+  border: 0; background: transparent; padding: 5px 11px; border-radius: 999px; cursor: pointer;
+  font-size: 13px; font-weight: 600; color: var(--muted);
+}
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+@media (max-width: 760px) {
+  .nav { display: none; }
+  .bar-in { justify-content: space-between; gap: 12px; }
+  .look-label { display: none; }
+  .seg button { padding: 6px 10px; }
+}
+
+/* ---------- Hero ---------- */
+.hero { position: relative; overflow: hidden; isolation: isolate; border-bottom: 1px solid var(--line); }
+#fluid, .fluid-fallback { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; display: block; }
+.fluid-fallback {
+  background:
+    radial-gradient(40% 60% at 20% 30%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 70%),
+    radial-gradient(35% 50% at 75% 70%, color-mix(in srgb, var(--hot) 25%, transparent), transparent 70%);
+}
+.hero-media { position: absolute; inset: 0; z-index: -2; overflow: hidden; background: var(--bg); }
+.hero-media img, .hero-media video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 72% 50%;
+  opacity: 0; transition: opacity .7s ease;
+}
+.hero-media .m-dark { opacity: var(--media-dark); }
+.hero-media .m-light { opacity: var(--media-light); }
+@media (max-width: 860px) { .hero-media img, .hero-media video { object-position: 78% 50%; } }
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--bg) 88%, transparent) 0%, color-mix(in srgb, var(--bg) 62%, transparent) 42%, transparent 72%);
+}
+@media (max-width: 860px) {
+  .hero::after { background: linear-gradient(180deg, color-mix(in srgb, var(--bg) 55%, transparent), color-mix(in srgb, var(--bg) 88%, transparent) 55%); }
+}
+.hero-in {
+  display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 40px; align-items: end;
+  padding-block: clamp(56px, 9vw, 112px) clamp(40px, 6vw, 72px);
+  pointer-events: none;
+}
+.hero-in > * { pointer-events: auto; }
+.eyebrow {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px;
+  font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600;
+}
+.pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--hot); box-shadow: 0 0 0 0 var(--hot); animation: pulse 1.6s infinite; }
+@keyframes pulse { 70% { box-shadow: 0 0 0 10px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+h1 {
+  margin: 14px 0 18px;
+  font-family: var(--display-family); font-weight: 800; font-stretch: 75%;
+  text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.9;
+  font-size: clamp(48px, 9.5vw, 128px);
+  text-wrap: balance;
+}
+h1 em { font-style: inherit; color: var(--accent); }
+.lede { max-width: 52ch; font-size: 17px; color: var(--ink); opacity: .86; margin: 0 0 26px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 20px; border-radius: 999px; font-weight: 700; text-decoration: none; cursor: pointer;
+  border: 1px solid transparent; transition: transform .15s ease, background-color .2s ease;
+}
+.btn:active { transform: scale(.97); }
+.btn-primary { background: var(--accent-strong); color: var(--accent-ink); }
+.btn-primary:hover { filter: brightness(1.08); }
+.btn-ghost { background: var(--glass); border-color: var(--line); color: var(--ink); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.btn-ghost:hover { border-color: var(--muted); }
+.hero-facts { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 26px; font-size: 13px; color: var(--muted); }
+.hero-facts strong { color: var(--ink); font-weight: 600; }
+
+.ticker {
+  background: var(--glass); border: 1px solid var(--line); border-radius: 18px; padding: 16px;
+  backdrop-filter: blur(16px) saturate(1.3); -webkit-backdrop-filter: blur(16px) saturate(1.3);
+}
+.ticker-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.ticker-head h2 { margin: 0; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.ticker-head span { font-size: 12px; color: var(--muted); }
+.ticker ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.ticker li {
+  display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; padding: 9px 10px; border-radius: 10px;
+  animation: slideIn .5s cubic-bezier(.2,.8,.2,1);
+}
+.ticker li:first-child { background: color-mix(in srgb, var(--hot) 14%, transparent); }
+.ticker .who { font-weight: 600; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ticker .amt { font-weight: 600; color: var(--hot); text-align: right; }
+.ticker .what { grid-column: 1 / -1; font-size: 12px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@keyframes slideIn { from { transform: translateY(-8px); opacity: .2; } to { transform: none; opacity: 1; } }
+@media (max-width: 860px) {
+  .hero-in { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* ---------- Sections ---------- */
+section.block { padding-block: clamp(56px, 8vw, 96px); }
+.block-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px 24px; margin-bottom: 28px; }
+h2.title {
+  margin: 0;
+  font-family: var(--display-family); font-weight: 800; font-stretch: 75%;
+  letter-spacing: -0.015em; line-height: 1;
+  font-size: clamp(34px, 5vw, 60px); text-wrap: balance;
+}
+.sub { color: var(--muted); max-width: 60ch; margin: 10px 0 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip-btn {
+  border: 1px solid var(--line); background: var(--panel); padding: 7px 14px; border-radius: 999px;
+  font-size: 13px; font-weight: 600; cursor: pointer; color: var(--muted);
+}
+.chip-btn[aria-pressed="true"] { color: var(--ink); border-color: var(--ink); }
+
+/* ---------- Lot cards ---------- */
+.lots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 16px; }
+.lot {
+  position: relative; display: flex; flex-direction: column; gap: 14px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 18px;
+  overflow: hidden; transition: border-color .3s ease, transform .3s ease;
+}
+.lot:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--muted) 60%, transparent); }
+.lot.flash { animation: flash 1.1s ease; }
+@keyframes flash { 0% { border-color: var(--hot); box-shadow: 0 0 0 3px color-mix(in srgb, var(--hot) 35%, transparent); } 100% { box-shadow: 0 0 0 0 transparent; } }
+.lot-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 12px; }
+.lot-no { font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.src { padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); font-weight: 600; white-space: nowrap; }
+.src.own { border-color: transparent; background: var(--accent-strong); color: var(--accent-ink); }
+.lot-media { margin: -6px -6px 0; aspect-ratio: 16 / 9; max-width: calc(100% + 12px); border-radius: 14px; overflow: hidden; background: var(--panel-2); }
+.lot-media img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.lot:hover .lot-media img { transform: scale(1.04); }
+.lot-id { display: block; }
+.paint {
+  width: 36px; height: 36px; border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255,255,255,.85) 0 6%, rgba(255,255,255,.25) 14%, transparent 34%),
+    radial-gradient(circle at 70% 80%, rgba(0,0,0,.35), transparent 55%),
+    conic-gradient(from 200deg, var(--p1), var(--p2), var(--p1), var(--p2), var(--p1));
+  box-shadow: inset 0 -6px 14px rgba(0,0,0,.35), 0 6px 18px rgba(0,0,0,.25);
+}
+.lot h3 { margin: 0; font-size: 20px; line-height: 1.15; font-weight: 700; letter-spacing: -0.01em; text-wrap: balance; }
+.lot h3 .yr { color: var(--muted); font-weight: 600; }
+.meta { margin: 3px 0 0; font-size: 13px; color: var(--muted); }
+.checks { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.checks li {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600;
+  padding: 4px 9px; border-radius: 8px; background: var(--panel-2); border: 1px solid var(--line);
+}
+.checks li::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--muted); }
+.checks li.ok::before { background: var(--good); }
+.checks li.warn::before { background: var(--warn); }
+.checks li.check { color: var(--muted); border-style: dashed; }
+.checks li.check::before { background: transparent; border: 1.5px solid var(--muted); width: 5px; height: 5px; }
+.bid-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: end; padding-top: 12px; border-top: 1px solid var(--line); }
+.lbl { display: block; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 2px; }
+.bid { font-size: 28px; font-weight: 600; letter-spacing: -0.02em; display: inline-block; }
+.bid.bump { animation: bump .6s cubic-bezier(.2,.9,.3,1.4); color: var(--hot); }
+@keyframes bump { 0% { transform: translateY(6px) scale(.96); } 60% { transform: translateY(-2px) scale(1.04); } 100% { transform: none; } }
+.timer { font-size: 17px; font-weight: 600; text-align: right; display: block; }
+.timer.soon { color: var(--hot); }
+.ext { display: inline-block; margin-left: 6px; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; padding: 2px 6px; border-radius: 6px; background: var(--accent-strong); color: var(--accent-ink); vertical-align: 2px; }
+.fair { display: grid; gap: 6px; }
+.fair-top { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--muted); }
+.fair-state { font-weight: 700; }
+.fair-state.in { color: var(--good); }
+.fair-state.below { color: var(--silver); }
+.fair-state.above { color: var(--warn); }
+.fair-track { position: relative; height: 6px; border-radius: 6px; background: var(--panel-2); border: 1px solid var(--line); }
+.fair-range { position: absolute; top: -1px; bottom: -1px; border-radius: 6px; background: color-mix(in srgb, var(--good) 45%, transparent); }
+.fair-mark { position: absolute; top: 50%; width: 14px; height: 14px; margin-left: -7px; margin-top: -7px; border-radius: 50%; background: var(--ink); border: 3px solid var(--panel); transition: left .6s cubic-bezier(.2,.8,.2,1); }
+.lot-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; }
+.lot-foot .count { font-size: 13px; color: var(--muted); }
+.btn-sm { padding: 9px 16px; font-size: 14px; }
+.sold-tag { font-weight: 700; color: var(--good); }
+.lot.ended .bid { color: var(--good); }
+.empty { color: var(--muted); padding: 24px 0; }
+
+/* ---------- Verified report ---------- */
+.verify { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 40px; align-items: start; }
+.verify-copy p { max-width: 50ch; }
+.verify-copy ul { padding-left: 18px; color: var(--muted); display: grid; gap: 6px; }
+.verify-copy ul strong { color: var(--ink); }
+.report { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
+.report-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 18px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.report-head strong { font-size: 16px; }
+.report-head .mono { font-size: 12px; color: var(--muted); }
+.report dl { margin: 0; display: grid; grid-template-columns: minmax(110px, auto) 1fr; }
+.report dt, .report dd { margin: 0; padding: 13px 18px; border-bottom: 1px solid var(--line); }
+.report dt { color: var(--muted); font-size: 13px; font-weight: 600; }
+.report dd { font-size: 14px; }
+.report dd small { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+.stamp { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--good); margin-left: 6px; }
+.stamp::before { content: "✓"; }
+.spark { padding: 16px 18px 18px; }
+.viewer { position: relative; margin-top: 24px; }
+model-viewer {
+  display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; max-width: 100%;
+  border-radius: 20px; border: 1px solid var(--line);
+  background: radial-gradient(70% 60% at 50% 45%, var(--panel-2), var(--panel) 70%, var(--bg));
+  --poster-color: transparent;
+}
+.viewer-cap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 10px; font-size: 12px; color: var(--muted); }
+.viewer-badge { position: absolute; top: 14px; left: 14px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; background: var(--glass); border: 1px solid var(--line); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); pointer-events: none; }
+.spark svg { display: block; width: 100%; height: auto; max-width: 100%; }
+.spark .cap { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 8px; gap: 8px; flex-wrap: wrap; }
+@media (max-width: 860px) { .verify { grid-template-columns: 1fr; } }
+@media (max-width: 420px) { .report dl { grid-template-columns: 1fr; } .report dt { border-bottom: 0; padding-bottom: 0; } }
+
+/* ---------- Seller calculator ---------- */
+.sell { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 22px; }
+.field { display: grid; gap: 6px; margin-bottom: 16px; }
+.field label { font-size: 13px; font-weight: 600; color: var(--muted); }
+select {
+  appearance: none; -webkit-appearance: none; width: 100%;
+  padding: 11px 38px 11px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel-2);
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%; background-size: 5px 5px; background-repeat: no-repeat;
+}
+.toggle { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-top: 1px solid var(--line); cursor: pointer; }
+.toggle input { appearance: none; -webkit-appearance: none; flex: none; width: 40px; height: 24px; border-radius: 999px; background: var(--panel-2); border: 1px solid var(--line); position: relative; cursor: pointer; transition: background-color .2s; margin: 0; }
+.toggle input::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--muted); transition: transform .2s, background-color .2s; }
+.toggle input:checked { background: var(--accent-strong); border-color: var(--accent-strong); }
+.toggle input:checked::after { transform: translateX(16px); background: var(--accent-ink); }
+.toggle input:disabled { opacity: .4; cursor: not-allowed; }
+.toggle.disabled { opacity: .55; cursor: not-allowed; }
+.toggle span { display: grid; gap: 2px; }
+.toggle strong { font-size: 14px; }
+.toggle small { color: var(--muted); font-size: 12px; }
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px; }
+.compare > div { border: 1px solid var(--line); border-radius: 14px; padding: 16px; background: var(--panel-2); }
+.big { display: block; font-size: clamp(26px, 4vw, 36px); font-weight: 600; letter-spacing: -0.02em; margin-top: 4px; }
+.big.up { color: var(--good); }
+.note { font-size: 12px; color: var(--muted); }
+.breakdown { list-style: none; margin: 0 0 18px; padding: 0; display: grid; gap: 8px; font-size: 14px; }
+.breakdown li { display: flex; justify-content: space-between; gap: 12px; }
+.breakdown li span:last-child { color: var(--muted); }
+@media (max-width: 860px) { .sell { grid-template-columns: 1fr; } }
+@media (max-width: 420px) { .compare { grid-template-columns: 1fr; } }
+
+/* ---------- Results table ---------- */
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 20px; background: var(--panel); }
+table { width: 100%; border-collapse: collapse; min-width: 640px; font-size: 14px; }
+th, td { text-align: left; padding: 13px 16px; border-bottom: 1px solid var(--line); }
+th { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+tbody tr:last-child td { border-bottom: 0; }
+td.num { text-align: right; }
+th.num { text-align: right; }
+tr.fresh { animation: freshRow 2.4s ease; }
+@keyframes freshRow { from { background: color-mix(in srgb, var(--good) 22%, transparent); } to { background: transparent; } }
+.pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+.pill.sold { background: color-mix(in srgb, var(--good) 20%, transparent); color: var(--good); }
+.pill.nr { background: color-mix(in srgb, var(--warn) 20%, transparent); color: var(--warn); }
+
+/* ---------- Footer, modal, toast ---------- */
+footer { border-top: 1px solid var(--line); padding-block: 32px 48px; color: var(--muted); font-size: 13px; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; }
+.proto { font-size: 12px; color: var(--muted); }
+
+.modal-bg { position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,.5); display: grid; place-items: end center; padding: 16px; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+@media (min-width: 640px) { .modal-bg { place-items: center; } }
+.modal { width: 100%; max-width: 440px; background: var(--panel); border: 1px solid var(--line); border-radius: 22px; padding: 22px; box-shadow: 0 30px 80px rgba(0,0,0,.4); animation: rise .35s cubic-bezier(.2,.8,.2,1); }
+@keyframes rise { from { transform: translateY(16px); opacity: 0; } to { transform: none; opacity: 1; } }
+.modal h3 { margin: 0 0 4px; font-size: 20px; }
+.modal .meta { margin-bottom: 16px; }
+.bid-input { display: flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--panel-2); border-radius: 14px; padding: 4px 6px 4px 14px; margin: 6px 0 8px; }
+.bid-input span { font-size: 24px; color: var(--muted); }
+.bid-input input { flex: 1; min-width: 0; border: 0; background: transparent; font-size: 26px; font-weight: 600; padding: 8px 0; }
+.bid-input input:focus { outline: none; }
+.bid-input:focus-within { border-color: var(--ink); }
+.quick { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.fee { font-size: 13px; color: var(--muted); margin: 0 0 16px; }
+.fee strong { color: var(--ink); }
+.modal-actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
+.err { color: var(--warn); font-size: 13px; min-height: 18px; margin: 0 0 10px; }
+.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 60; background: var(--ink); color: var(--bg); padding: 12px 18px; border-radius: 999px; font-weight: 600; font-size: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.3); max-width: calc(100% - 32px); text-align: center; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="wordmark" href="#top" aria-label="TesBids home">Tes<b>Bids</b></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#live">Live auctions</a>
+      <a href="#verified">Verified report</a>
+      <a href="#sell">Sell</a>
+      <a href="#results">Results</a>
+    </nav>
+    <div class="look" role="group" aria-label="Color mode">
+      <span class="look-label">Mode</span>
+      <div class="seg">
+        <button type="button" data-mode="auto" aria-pressed="true"><span class="name">Auto</span></button>
+        <button type="button" data-mode="dark" aria-pressed="false"><span class="name">Dark</span></button>
+        <button type="button" data-mode="light" aria-pressed="false"><span class="name">Light</span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="TesBids">
+    <div class="hero-media" aria-hidden="true">
+      <img class="m-dark" src="assets/hero-dark.jpg" alt="" onerror="this.remove()">
+      <video class="m-dark" id="heroVideo" src="assets/hero-dark.mp4" muted loop playsinline autoplay preload="auto" onerror="this.remove()"></video>
+      <img class="m-light" src="assets/hero-light.jpg" alt="" onerror="this.remove()">
+    </div>
+    <canvas id="fluid" aria-hidden="true"></canvas>
+    <div class="fluid-fallback" id="fallback" hidden></div>
+    <div class="wrap hero-in">
+      <div>
+        <span class="eyebrow"><i class="pulse"></i><span id="liveCount">6 live auctions</span><span>· Prototype, sample listings</span></span>
+        <h1>Tesla auctions, <em>verified.</em></h1>
+        <p class="lede">Bid on Teslas with FSD, Supercharging, hardware and title checked before the first bid. Every listing also shows up on TeslaTracker, and you can bid from either site.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#live">Browse live auctions</a>
+          <a class="btn btn-ghost" href="#sell">Sell your Tesla, free listing</a>
+        </div>
+        <div class="hero-facts">
+          <span><strong>5%</strong> buyer fee, $250 min, $7,500 cap</span>
+          <span><strong>$0</strong> to list</span>
+          <span>Move your cursor over the liquid. Every bid makes a wave.</span>
+        </div>
+      </div>
+      <aside class="ticker" aria-label="Latest bids">
+        <div class="ticker-head"><h2>Latest bids</h2><span class="mono" id="clock">live</span></div>
+        <ol id="tickerList"></ol>
+      </aside>
+    </div>
+  </section>
+
+  <section class="block" id="live" aria-labelledby="liveTitle">
+    <div class="wrap">
+      <div class="block-head">
+        <div>
+          <h2 class="title" id="liveTitle">Live now</h2>
+          <p class="sub">TesBids auctions sit next to Tesla auctions from other sites. Outside listings link to the original and are marked as not yet verified by us.</p>
+        </div>
+        <div class="chips" role="group" aria-label="Filter auctions">
+          <button class="chip-btn" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="chip-btn" type="button" data-filter="own" aria-pressed="false">On TesBids</button>
+          <button class="chip-btn" type="button" data-filter="ext" aria-pressed="false">From other sites</button>
+        </div>
+      </div>
+      <div class="lots" id="lots"></div>
+    </div>
+  </section>
+
+  <section class="block" id="verified" aria-labelledby="verTitle" style="padding-top: 0">
+    <div class="wrap verify">
+      <div class="verify-copy">
+        <h2 class="title" id="verTitle">Know what you're bidding on</h2>
+        <p class="sub">Each TesBids listing comes with a report built from the owner's Tesla account, a title check and TeslaTracker price data. It answers the questions buyers ask most in the comments.</p>
+        <div class="viewer">
+          <model-viewer id="car3d" src="assets/car.gltf.json" poster="assets/car-studio.jpg" alt="Rotatable 3D model of a red electric sedan"
+            camera-controls touch-action="pan-y" auto-rotate auto-rotate-delay="0" rotation-per-second="16deg"
+            camera-orbit="35deg 72deg 105%" field-of-view="28deg" shadow-intensity="1" shadow-softness="0.8" exposure="1.05" environment-image="neutral" interaction-prompt="none"></model-viewer>
+          <span class="viewer-badge">Drag to rotate</span>
+          <div class="viewer-cap"><span>Walk around the car before you bid. Sellers add a 3D scan with the listing.</span><span>AI-generated sample model</span></div>
+        </div>
+      </div>
+      <article class="report" aria-label="Sample verified report">
+        <div class="report-head">
+          <strong>Lot 042 · 2022 Model S Plaid</strong>
+          <span class="mono">VIN 5YJSA1E6…4471 · sample</span>
+        </div>
+        <dl>
+          <dt>FSD</dt><dd>Purchased, stays with the car <span class="stamp">Verified</span><small>Checked through the owner's Tesla account</small></dd>
+          <dt>Hardware</dt><dd>HW3 (Autopilot computer 3.0) <span class="stamp">Verified</span></dd>
+          <dt>Supercharging</dt><dd>Pay per use<small>No free Supercharging on this car</small></dd>
+          <dt>Title</dt><dd>Clean, 1 owner <span class="stamp">Verified</span></dd>
+          <dt>Battery</dt><dd>About 93% of original range<small>Third-party estimate from 14 months of charging data</small></dd>
+          <dt>Warranty</dt><dd>Battery and drive unit until Mar 2030 or 150,000 mi</dd>
+        </dl>
+        <div class="spark">
+          <div class="cap"><span>Comparable 2022 Plaids on TeslaTracker, median ask, last 90 days</span><span class="mono" id="sparkRange"></span></div>
+          <svg id="spark" viewBox="0 0 560 120" role="img" aria-label="Median asking price fell from about $67,200 to $61,900 over 90 days"></svg>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="sell" aria-labelledby="sellTitle" style="padding-top: 0">
+    <div class="wrap">
+      <div class="block-head">
+        <div>
+          <h2 class="title" id="sellTitle">Tesla's trade-in pays $0 for your FSD</h2>
+          <p class="sub">Trade-in offers rarely credit purchased FSD, transferable free Supercharging or a rare edition. Auction bidders do. Pick what your car has.</p>
+        </div>
+      </div>
+      <div class="sell">
+        <form class="card" id="sellForm" aria-label="Your Tesla">
+          <div class="field">
+            <label for="sellModel">Model</label>
+            <select id="sellModel">
+              <option value="3">Model 3</option>
+              <option value="Y">Model Y</option>
+              <option value="S" selected>Model S</option>
+              <option value="X">Model X</option>
+              <option value="CT">Cybertruck</option>
+              <option value="R">Roadster</option>
+            </select>
+          </div>
+          <label class="toggle" id="tFsd"><input type="checkbox" id="optFsd" checked><span><strong>FSD purchased outright</strong><small>Bought before Tesla ended outright purchases on Feb 14, 2026</small></span></label>
+          <label class="toggle" id="tSc"><input type="checkbox" id="optSc"><span><strong>Free Supercharging that transfers</strong><small>Model S and X from about 2012 to early 2017</small></span></label>
+          <label class="toggle" id="tEd"><input type="checkbox" id="optEd"><span><strong>Founders, Signature or Foundation Series</strong><small>Early and limited editions</small></span></label>
+        </form>
+        <div class="card" aria-live="polite">
+          <div class="compare">
+            <div><span class="lbl">Typical trade-in credit</span><span class="big mono">$0</span><span class="note">for these extras</span></div>
+            <div><span class="lbl">Extra bidders may pay</span><span class="big up mono" id="sellUp">+$3k–6k</span><span class="note">illustrative range</span></div>
+          </div>
+          <ul class="breakdown" id="sellBreak"></ul>
+          <button class="btn btn-primary" type="button" id="sellCta" style="width: 100%">List my Tesla for free</button>
+          <p class="note" style="margin: 12px 0 0">Ranges are placeholders for this prototype, not quotes. The live version would use TesBids and TeslaTracker sale data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="results" aria-labelledby="resTitle" style="padding-top: 0">
+    <div class="wrap">
+      <div class="block-head">
+        <div>
+          <h2 class="title" id="resTitle">Recent results</h2>
+          <p class="sub">Final prices help sellers set a reserve and help buyers know when to stop. Sample data.</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Car</th><th>Extras</th><th class="num">Miles</th><th class="num">Final bid</th><th>Result</th><th>When</th></tr></thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>TesBids is not affiliated with Tesla, Inc. Tesla and model names identify the cars listed.</span>
+    <span class="proto">Prototype. All listings, bids and reports on this page are sample data. Car images, video and the 3D model are AI-generated and don't show the listed cars.</span>
+  </div>
+</footer>
+
+<div id="modalRoot"></div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script>
+(function () {
+  'use strict';
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ================= Directions ================= */
+  var DIRS = {
+    dark:  { strength: 0.55, inks: [[0.80, 0.84, 0.90], [0.95, 0.24, 0.18], [0.95, 0.97, 1.0]], hot: [0.95, 0.24, 0.18], shine: 1.0 },
+    light: { strength: 0.38, inks: [[0.10, 0.12, 0.15], [0.80, 0.17, 0.10], [0.35, 0.42, 0.50]], hot: [0.80, 0.17, 0.10], shine: 0.5 }
+  };
+  var root = document.documentElement;
+  var mode = 'auto';
+  try { var saved = localStorage.getItem('tesbids-mode'); if (saved === 'dark' || saved === 'light') mode = saved; } catch (e) {}
+  var lightQuery = window.matchMedia('(prefers-color-scheme: light)');
+  var dir = 'dark';
+  function effective() {
+    if (mode !== 'auto') return mode;
+    var t = root.getAttribute('data-theme');
+    if (t === 'light' || t === 'dark') return t;
+    return lightQuery.matches ? 'light' : 'dark';
+  }
+  function applyMode() {
+    if (mode === 'auto') root.removeAttribute('data-mode'); else root.setAttribute('data-mode', mode);
+    document.querySelectorAll('.seg button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.mode === mode)); });
+    var next = effective();
+    if (next !== dir) { dir = next; if (fluid) fluid.burst(5); }
+  }
+  document.querySelectorAll('.seg button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      mode = b.dataset.mode;
+      try { localStorage.setItem('tesbids-mode', mode); } catch (e) {}
+      applyMode();
+    });
+  });
+  if (lightQuery.addEventListener) lightQuery.addEventListener('change', applyMode);
+  new MutationObserver(applyMode).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+
+  /* ================= Fluid simulation (WebGL stable fluids) ================= */
+  var fluid = (function () {
+    var canvas = document.getElementById('fluid');
+    var heroVideo = document.getElementById('heroVideo');
+    if (heroVideo && reduceMotion) { heroVideo.removeAttribute('autoplay'); heroVideo.pause(); }
+    var fallback = document.getElementById('fallback');
+    function useFallback() { canvas.hidden = true; fallback.hidden = false; return null; }
+    if (reduceMotion) return useFallback();
+
+    var params = { alpha: true, premultipliedAlpha: true, depth: false, stencil: false, antialias: false, preserveDrawingBuffer: false };
+    var gl = canvas.getContext('webgl2', params);
+    var isGL2 = !!gl;
+    if (!gl) gl = canvas.getContext('webgl', params) || canvas.getContext('experimental-webgl', params);
+    if (!gl) return useFallback();
+
+    var halfFloat, linear, halfType;
+    if (isGL2) {
+      gl.getExtension('EXT_color_buffer_float');
+      linear = gl.getExtension('OES_texture_float_linear');
+      halfType = gl.HALF_FLOAT;
+    } else {
+      halfFloat = gl.getExtension('OES_texture_half_float');
+      linear = gl.getExtension('OES_texture_half_float_linear');
+      halfType = halfFloat && halfFloat.HALF_FLOAT_OES;
+    }
+    if (!halfType) return useFallback();
+    gl.clearColor(0, 0, 0, 0);
+
+    function supportsRT(internalFormat, format, type) {
+      var tex = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, tex);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      gl.texImage2D(gl.TEXTURE_2D, 0, internalFormat, 4, 4, 0, format, type, null);
+      var fbo = gl.createFramebuffer();
+      gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
+      gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tex, 0);
+      var ok = gl.checkFramebufferStatus(gl.FRAMEBUFFER) === gl.FRAMEBUFFER_COMPLETE;
+      gl.deleteFramebuffer(fbo); gl.deleteTexture(tex);
+      return ok;
+    }
+    function getFormat(internalFormat, format, type) {
+      if (supportsRT(internalFormat, format, type)) return { internalFormat: internalFormat, format: format };
+      if (!isGL2) return null;
+      if (internalFormat === gl.R16F) return getFormat(gl.RG16F, gl.RG, type);
+      if (internalFormat === gl.RG16F) return getFormat(gl.RGBA16F, gl.RGBA, type);
+      return null;
+    }
+    var fRGBA, fRG, fR;
+    if (isGL2) {
+      fRGBA = getFormat(gl.RGBA16F, gl.RGBA, halfType);
+      fRG = getFormat(gl.RG16F, gl.RG, halfType);
+      fR = getFormat(gl.R16F, gl.RED, halfType);
+    } else {
+      fRGBA = fRG = fR = getFormat(gl.RGBA, gl.RGBA, halfType);
+    }
+    if (!fRGBA || !fRG || !fR) return useFallback();
+
+    var VERT = [
+      'precision highp float;',
+      'attribute vec2 aPosition;',
+      'varying vec2 vUv; varying vec2 vL; varying vec2 vR; varying vec2 vT; varying vec2 vB;',
+      'uniform vec2 texelSize;',
+      'void main () {',
+      '  vUv = aPosition * 0.5 + 0.5;',
+      '  vL = vUv - vec2(texelSize.x, 0.0); vR = vUv + vec2(texelSize.x, 0.0);',
+      '  vT = vUv + vec2(0.0, texelSize.y); vB = vUv - vec2(0.0, texelSize.y);',
+      '  gl_Position = vec4(aPosition, 0.0, 1.0);',
+      '}'].join('\n');
+    var HEAD = 'precision highp float; precision highp sampler2D;\nvarying vec2 vUv; varying vec2 vL; varying vec2 vR; varying vec2 vT; varying vec2 vB;\n';
+    var SRC = {
+      clear: HEAD + 'uniform sampler2D uTexture; uniform float value;\nvoid main () { gl_FragColor = value * texture2D(uTexture, vUv); }',
+      splat: HEAD + 'uniform sampler2D uTarget; uniform float aspectRatio; uniform vec4 color; uniform vec2 point; uniform float radius;\n' +
+        'void main () { vec2 p = vUv - point; p.x *= aspectRatio; float s = exp(-dot(p, p) / radius); gl_FragColor = texture2D(uTarget, vUv) + s * color; }',
+      advection: HEAD + 'uniform sampler2D uVelocity; uniform sampler2D uSource; uniform vec2 texelSize; uniform vec2 dyeTexelSize; uniform float dt; uniform float dissipation;\n' +
+        'vec4 bilerp (sampler2D sam, vec2 uv, vec2 tsize) { vec2 st = uv / tsize - 0.5; vec2 iuv = floor(st); vec2 fuv = fract(st);\n' +
+        '  vec4 a = texture2D(sam, (iuv + vec2(0.5, 0.5)) * tsize); vec4 b = texture2D(sam, (iuv + vec2(1.5, 0.5)) * tsize);\n' +
+        '  vec4 c = texture2D(sam, (iuv + vec2(0.5, 1.5)) * tsize); vec4 d = texture2D(sam, (iuv + vec2(1.5, 1.5)) * tsize);\n' +
+        '  return mix(mix(a, b, fuv.x), mix(c, d, fuv.x), fuv.y); }\n' +
+        'void main () {\n#ifdef MANUAL_FILTERING\n  vec2 coord = vUv - dt * bilerp(uVelocity, vUv, texelSize).xy * texelSize; vec4 result = bilerp(uSource, coord, dyeTexelSize);\n' +
+        '#else\n  vec2 coord = vUv - dt * texture2D(uVelocity, vUv).xy * texelSize; vec4 result = texture2D(uSource, coord);\n#endif\n' +
+        '  gl_FragColor = result / (1.0 + dissipation * dt); }',
+      divergence: HEAD + 'uniform sampler2D uVelocity;\nvoid main () {\n' +
+        '  float L = texture2D(uVelocity, vL).x; float R = texture2D(uVelocity, vR).x; float T = texture2D(uVelocity, vT).y; float B = texture2D(uVelocity, vB).y;\n' +
+        '  vec2 C = texture2D(uVelocity, vUv).xy;\n' +
+        '  if (vL.x < 0.0) { L = -C.x; } if (vR.x > 1.0) { R = -C.x; } if (vT.y > 1.0) { T = -C.y; } if (vB.y < 0.0) { B = -C.y; }\n' +
+        '  gl_FragColor = vec4(0.5 * (R - L + T - B), 0.0, 0.0, 1.0); }',
+      curl: HEAD + 'uniform sampler2D uVelocity;\nvoid main () {\n' +
+        '  float L = texture2D(uVelocity, vL).y; float R = texture2D(uVelocity, vR).y; float T = texture2D(uVelocity, vT).x; float B = texture2D(uVelocity, vB).x;\n' +
+        '  gl_FragColor = vec4(0.5 * (R - L - T + B), 0.0, 0.0, 1.0); }',
+      vorticity: HEAD + 'uniform sampler2D uVelocity; uniform sampler2D uCurl; uniform float curl; uniform float dt;\nvoid main () {\n' +
+        '  float L = texture2D(uCurl, vL).x; float R = texture2D(uCurl, vR).x; float T = texture2D(uCurl, vT).x; float B = texture2D(uCurl, vB).x; float C = texture2D(uCurl, vUv).x;\n' +
+        '  vec2 force = 0.5 * vec2(abs(T) - abs(B), abs(R) - abs(L)); force /= length(force) + 0.0001; force *= curl * C; force.y *= -1.0;\n' +
+        '  vec2 vel = texture2D(uVelocity, vUv).xy + force * dt; vel = min(max(vel, -1000.0), 1000.0); gl_FragColor = vec4(vel, 0.0, 1.0); }',
+      pressure: HEAD + 'uniform sampler2D uPressure; uniform sampler2D uDivergence;\nvoid main () {\n' +
+        '  float L = texture2D(uPressure, vL).x; float R = texture2D(uPressure, vR).x; float T = texture2D(uPressure, vT).x; float B = texture2D(uPressure, vB).x;\n' +
+        '  float d = texture2D(uDivergence, vUv).x; gl_FragColor = vec4((L + R + B + T - d) * 0.25, 0.0, 0.0, 1.0); }',
+      gradient: HEAD + 'uniform sampler2D uPressure; uniform sampler2D uVelocity;\nvoid main () {\n' +
+        '  float L = texture2D(uPressure, vL).x; float R = texture2D(uPressure, vR).x; float T = texture2D(uPressure, vT).x; float B = texture2D(uPressure, vB).x;\n' +
+        '  vec2 v = texture2D(uVelocity, vUv).xy - vec2(R - L, T - B); gl_FragColor = vec4(v, 0.0, 1.0); }',
+      display: HEAD + 'uniform sampler2D uTexture; uniform float uShine; uniform float uStrength;\nvoid main () {\n' +
+        '  vec4 d = texture2D(uTexture, vUv); float a = clamp(d.a, 0.0, 1.0); vec3 hue = d.rgb / max(d.a, 0.0001);\n' +
+        '  float aL = texture2D(uTexture, vL).a; float aR = texture2D(uTexture, vR).a; float aT = texture2D(uTexture, vT).a; float aB = texture2D(uTexture, vB).a;\n' +
+        '  vec3 n = normalize(vec3(aL - aR, aB - aT, 0.035)); vec3 l = normalize(vec3(-0.4, 0.6, 0.7));\n' +
+        '  float diff = clamp(dot(n, l) * 0.35 + 0.8, 0.6, 1.1); float spec = pow(max(dot(reflect(-l, n), vec3(0.0, 0.0, 1.0)), 0.0), 24.0) * uShine;\n' +
+        '  float o = a * uStrength; float s = spec * a * 0.4; vec3 ink = clamp(hue, 0.0, 1.0) * diff;\n' +
+        '  gl_FragColor = vec4(ink * o + s, clamp(o + s, 0.0, 1.0)); }'
+    };
+
+    function compile(type, src, keywords) {
+      if (keywords) src = keywords.map(function (k) { return '#define ' + k + '\n'; }).join('') + src;
+      var s = gl.createShader(type);
+      gl.shaderSource(s, src); gl.compileShader(s);
+      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+      return s;
+    }
+    var vert;
+    function program(fragSrc, keywords) {
+      var p = gl.createProgram();
+      gl.attachShader(p, vert); gl.attachShader(p, compile(gl.FRAGMENT_SHADER, fragSrc, keywords));
+      gl.bindAttribLocation(p, 0, 'aPosition');
+      gl.linkProgram(p);
+      if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p));
+      var u = {};
+      var n = gl.getProgramParameter(p, gl.ACTIVE_UNIFORMS);
+      for (var i = 0; i < n; i++) { var name = gl.getActiveUniform(p, i).name; u[name] = gl.getUniformLocation(p, name); }
+      return { p: p, u: u, bind: function () { gl.useProgram(p); } };
+    }
+    var P;
+    try {
+      vert = compile(gl.VERTEX_SHADER, VERT);
+      P = {
+        clear: program(SRC.clear), splat: program(SRC.splat),
+        advection: program(SRC.advection, linear ? null : ['MANUAL_FILTERING']),
+        divergence: program(SRC.divergence), curl: program(SRC.curl), vorticity: program(SRC.vorticity),
+        pressure: program(SRC.pressure), gradient: program(SRC.gradient), display: program(SRC.display)
+      };
+    } catch (e) { return useFallback(); }
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, -1, 1, 1, 1, 1, -1]), gl.STATIC_DRAW);
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, gl.createBuffer());
+    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array([0, 1, 2, 0, 2, 3]), gl.STATIC_DRAW);
+    gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(0);
+
+    function blit(target) {
+      if (target) { gl.viewport(0, 0, target.w, target.h); gl.bindFramebuffer(gl.FRAMEBUFFER, target.fbo); }
+      else { gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight); gl.bindFramebuffer(gl.FRAMEBUFFER, null); }
+      gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);
+    }
+    function fbo(w, h, f, filter) {
+      gl.activeTexture(gl.TEXTURE0);
+      var tex = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, tex);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, filter);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, filter);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      gl.texImage2D(gl.TEXTURE_2D, 0, f.internalFormat, w, h, 0, f.format, halfType, null);
+      var fb = gl.createFramebuffer();
+      gl.bindFramebuffer(gl.FRAMEBUFFER, fb);
+      gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tex, 0);
+      gl.viewport(0, 0, w, h); gl.clear(gl.COLOR_BUFFER_BIT);
+      return { tex: tex, fbo: fb, w: w, h: h, tx: 1 / w, ty: 1 / h,
+        attach: function (id) { gl.activeTexture(gl.TEXTURE0 + id); gl.bindTexture(gl.TEXTURE_2D, tex); return id; },
+        free: function () { gl.deleteTexture(tex); gl.deleteFramebuffer(fb); } };
+    }
+    function dfbo(w, h, f, filter) {
+      var a = fbo(w, h, f, filter), b = fbo(w, h, f, filter);
+      return { w: w, h: h, tx: 1 / w, ty: 1 / h,
+        get read() { return a; }, get write() { return b; },
+        swap: function () { var t = a; a = b; b = t; },
+        free: function () { a.free(); b.free(); } };
+    }
+    function res(r) {
+      var aspect = gl.drawingBufferWidth / gl.drawingBufferHeight;
+      if (aspect < 1) aspect = 1 / aspect;
+      var min = Math.round(r), max = Math.round(r * aspect);
+      return gl.drawingBufferWidth > gl.drawingBufferHeight ? { w: max, h: min } : { w: min, h: max };
+    }
+
+    var small = window.innerWidth < 700;
+    var CFG = { sim: small ? 96 : 128, dye: small ? 512 : 1024, curl: 22, pressureIters: 20, pressure: 0.8, velDiss: 0.25, dyeDiss: 0.55, radius: 0.28, force: 5200 };
+    var velocity, dye, divergence, curlT, pressure;
+    function initFBOs() {
+      [velocity, dye, divergence, curlT, pressure].forEach(function (t) { if (t) t.free(); });
+      var s = res(CFG.sim), d = res(CFG.dye);
+      var filt = linear ? gl.LINEAR : gl.NEAREST;
+      velocity = dfbo(s.w, s.h, fRG, filt);
+      dye = dfbo(d.w, d.h, fRGBA, filt);
+      divergence = fbo(s.w, s.h, fR, gl.NEAREST);
+      curlT = fbo(s.w, s.h, fR, gl.NEAREST);
+      pressure = dfbo(s.w, s.h, fR, gl.NEAREST);
+    }
+    function resize() {
+      var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      var w = Math.max(1, Math.floor(canvas.clientWidth * dpr)), h = Math.max(1, Math.floor(canvas.clientHeight * dpr));
+      if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; initFBOs(); return true; }
+      return false;
+    }
+
+    function splat(x, y, dx, dy, rgb, amount) {
+      var aspect = canvas.width / canvas.height;
+      var r = CFG.radius / 100; if (aspect > 1) r *= aspect;
+      P.splat.bind();
+      gl.uniform1i(P.splat.u.uTarget, velocity.read.attach(0));
+      gl.uniform1f(P.splat.u.aspectRatio, aspect);
+      gl.uniform2f(P.splat.u.point, x, y);
+      gl.uniform4f(P.splat.u.color, dx, dy, 0, 0);
+      gl.uniform1f(P.splat.u.radius, r);
+      blit(velocity.write); velocity.swap();
+      gl.uniform1i(P.splat.u.uTarget, dye.read.attach(0));
+      gl.uniform4f(P.splat.u.color, rgb[0] * amount, rgb[1] * amount, rgb[2] * amount, amount);
+      blit(dye.write); dye.swap();
+    }
+
+    function step(dt) {
+      gl.disable(gl.BLEND);
+      P.curl.bind();
+      gl.uniform2f(P.curl.u.texelSize, velocity.tx, velocity.ty);
+      gl.uniform1i(P.curl.u.uVelocity, velocity.read.attach(0));
+      blit(curlT);
+
+      P.vorticity.bind();
+      gl.uniform2f(P.vorticity.u.texelSize, velocity.tx, velocity.ty);
+      gl.uniform1i(P.vorticity.u.uVelocity, velocity.read.attach(0));
+      gl.uniform1i(P.vorticity.u.uCurl, curlT.attach(1));
+      gl.uniform1f(P.vorticity.u.curl, CFG.curl);
+      gl.uniform1f(P.vorticity.u.dt, dt);
+      blit(velocity.write); velocity.swap();
+
+      P.divergence.bind();
+      gl.uniform2f(P.divergence.u.texelSize, velocity.tx, velocity.ty);
+      gl.uniform1i(P.divergence.u.uVelocity, velocity.read.attach(0));
+      blit(divergence);
+
+      P.clear.bind();
+      gl.uniform1i(P.clear.u.uTexture, pressure.read.attach(0));
+      gl.uniform1f(P.clear.u.value, CFG.pressure);
+      blit(pressure.write); pressure.swap();
+
+      P.pressure.bind();
+      gl.uniform2f(P.pressure.u.texelSize, velocity.tx, velocity.ty);
+      gl.uniform1i(P.pressure.u.uDivergence, divergence.attach(0));
+      for (var i = 0; i < CFG.pressureIters; i++) {
+        gl.uniform1i(P.pressure.u.uPressure, pressure.read.attach(1));
+        blit(pressure.write); pressure.swap();
+      }
+
+      P.gradient.bind();
+      gl.uniform2f(P.gradient.u.texelSize, velocity.tx, velocity.ty);
+      gl.uniform1i(P.gradient.u.uPressure, pressure.read.attach(0));
+      gl.uniform1i(P.gradient.u.uVelocity, velocity.read.attach(1));
+      blit(velocity.write); velocity.swap();
+
+      P.advection.bind();
+      gl.uniform2f(P.advection.u.texelSize, velocity.tx, velocity.ty);
+      if (!linear) gl.uniform2f(P.advection.u.dyeTexelSize, velocity.tx, velocity.ty);
+      var vid = velocity.read.attach(0);
+      gl.uniform1i(P.advection.u.uVelocity, vid);
+      gl.uniform1i(P.advection.u.uSource, vid);
+      gl.uniform1f(P.advection.u.dt, dt);
+      gl.uniform1f(P.advection.u.dissipation, CFG.velDiss);
+      blit(velocity.write); velocity.swap();
+
+      if (!linear) gl.uniform2f(P.advection.u.dyeTexelSize, dye.tx, dye.ty);
+      gl.uniform1i(P.advection.u.uVelocity, velocity.read.attach(0));
+      gl.uniform1i(P.advection.u.uSource, dye.read.attach(1));
+      gl.uniform1f(P.advection.u.dissipation, CFG.dyeDiss);
+      blit(dye.write); dye.swap();
+    }
+
+    function render() {
+      var d = DIRS[dir];
+      P.display.bind();
+      gl.uniform2f(P.display.u.texelSize, dye.tx, dye.ty);
+      gl.uniform1i(P.display.u.uTexture, dye.read.attach(0));
+      gl.uniform1f(P.display.u.uStrength, d.strength);
+      gl.uniform1f(P.display.u.uShine, d.shine);
+      blit(null);
+    }
+
+    var inkIndex = 0;
+    function nextInk() { var inks = DIRS[dir].inks; inkIndex = (inkIndex + 1) % inks.length; return inks[inkIndex]; }
+
+    // Pointer stirring
+    var pointer = { x: 0, y: 0, px: 0, py: 0, moved: false, down: false, ink: null };
+    var hero = canvas.parentElement;
+    function onMove(e) {
+      var r = canvas.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width, y = 1 - (e.clientY - r.top) / r.height;
+      if (!pointer.started) { pointer.px = x; pointer.py = y; pointer.started = true; pointer.ink = nextInk(); }
+      pointer.x = x; pointer.y = y; pointer.moved = true;
+    }
+    hero.addEventListener('pointermove', onMove, { passive: true });
+    hero.addEventListener('pointerdown', function (e) { onMove(e); pointer.ink = nextInk(); });
+    hero.addEventListener('pointerleave', function () { pointer.started = false; });
+
+    var running = true, visible = true, last = performance.now(), ambientT = 0;
+    new IntersectionObserver(function (entries) { visible = entries[0].isIntersecting; }).observe(hero);
+    document.addEventListener('visibilitychange', function () { last = performance.now(); });
+
+    function burst(n) {
+      for (var i = 0; i < n; i++) {
+        var ink = DIRS[dir].inks[i % DIRS[dir].inks.length];
+        var a = Math.random() * Math.PI * 2;
+        splat(0.15 + Math.random() * 0.7, 0.2 + Math.random() * 0.6, Math.cos(a) * 900, Math.sin(a) * 900, ink, 0.55);
+      }
+    }
+
+    function loop(now) {
+      requestAnimationFrame(loop);
+      if (!visible || document.hidden) { last = now; return; }
+      var dt = Math.min((now - last) / 1000, 0.016666); last = now;
+      if (resize()) burst(6);
+      if (pointer.moved) {
+        pointer.moved = false;
+        var dx = pointer.x - pointer.px, dy = pointer.y - pointer.py;
+        var aspect = canvas.width / canvas.height;
+        if (aspect < 1) dx *= aspect; else dy /= aspect;
+        if (Math.abs(dx) + Math.abs(dy) > 0.0005) {
+          if (Math.random() < 0.02) pointer.ink = nextInk();
+          splat(pointer.x, pointer.y, dx * CFG.force, dy * CFG.force, pointer.ink, 0.14);
+        }
+        pointer.px = pointer.x; pointer.py = pointer.y;
+      }
+      ambientT += dt;
+      if (ambientT > 1.6) {
+        ambientT = 0;
+        var a = Math.random() * Math.PI * 2;
+        splat(0.1 + Math.random() * 0.8, 0.1 + Math.random() * 0.8, Math.cos(a) * 420, Math.sin(a) * 420, nextInk(), 0.18);
+      }
+      step(dt);
+      render();
+    }
+
+    resize();
+    burst(7);
+    requestAnimationFrame(loop);
+
+    return {
+      burst: burst,
+      bidWave: function (strength) {
+        if (!visible) return;
+        var x = 0.55 + Math.random() * 0.35, y = 0.2 + Math.random() * 0.6;
+        var hot = DIRS[dir].hot, s = strength || 1;
+        for (var i = 0; i < 3; i++) {
+          var a = Math.PI * 0.9 + (Math.random() - 0.5) * 1.4;
+          splat(x, y, Math.cos(a) * 2600 * s, Math.sin(a) * 2600 * s, hot, 0.6);
+        }
+      }
+    };
+  })();
+  applyMode();
+
+  /* ================= Auction data (sample) ================= */
+  var now = Date.now();
+  var LOTS = [
+    { id: '051', img: 'assets/lot-051.jpg', year: 2024, model: 'Cybertruck Foundation Series', miles: 6200, paint: 'Stainless steel', p: ['#D5D9DE', '#6B7178'], state: 'TX', src: 'own',
+      checks: [['FSD included', 'ok'], ['HW4', 'ok'], ['Clean title', 'ok'], ['Battery est. 98%', 'ok']], bid: 72000, fair: [68000, 80000], bids: 31, secs: 4 * 60 + 40 },
+    { id: '042', img: 'assets/lot-042.jpg', year: 2022, model: 'Model S Plaid', miles: 21400, paint: 'Red Multi-Coat', p: ['#C0182F', '#4E0410'], state: 'CA', src: 'own',
+      checks: [['FSD purchased', 'ok'], ['HW3', 'ok'], ['Clean title', 'ok'], ['Battery est. 93%', 'ok']], bid: 61500, fair: [58000, 66000], bids: 23, secs: 3 * 3600 + 14 * 60 },
+    { id: '037', img: 'assets/lot-037.jpg', year: 2012, model: 'Model S Signature P85', miles: 88300, paint: 'Signature Red', p: ['#A31D25', '#3B060A'], state: 'WA', src: 'own',
+      checks: [['Free Supercharging, transfers', 'ok'], ['Signature #0412', 'ok'], ['Clean title', 'ok'], ['Battery est. 84%', 'warn']], bid: 41000, fair: [35000, 50000], bids: 17, secs: 26 * 3600 + 5 * 60 },
+    { id: 'E-7719', img: 'assets/lot-e-7719.jpg', year: 2023, model: 'Model 3 Long Range', miles: 24100, paint: 'Midnight Silver Metallic', p: ['#636A72', '#1F2328'], state: 'AZ', src: 'ebay',
+      checks: [['FSD claimed', 'check'], ['HW3 claimed', 'check'], ['Title not checked', 'check']], bid: 24800, fair: [23000, 27000], bids: 12, secs: 5 * 3600 + 40 * 60,
+      url: 'https://www.ebay.com/sch/i.html?_nkw=tesla+model+3+2023&_sacat=6001' },
+    { id: 'B-2011', img: 'assets/lot-b-2011.jpg', year: 2011, model: 'Roadster 2.5 Sport', miles: 14900, paint: 'Electric Blue', p: ['#2766DA', '#0A1D4E'], state: 'FL', src: 'bat',
+      checks: [['1 of about 2,450 Roadsters', 'ok'], ['Title not checked', 'check']], bid: 148000, fair: [120000, 190000], bids: 38, secs: 2 * 86400 + 3 * 3600,
+      url: 'https://bringatrailer.com/tesla/' },
+    { id: '058', img: 'assets/lot-058.jpg', year: 2021, model: 'Model Y Performance', miles: 39200, paint: 'Pearl White Multi-Coat', p: ['#F4F4F0', '#AEB2B6'], state: 'NV', src: 'own',
+      checks: [['No FSD', 'none'], ['HW3', 'ok'], ['Clean title', 'ok'], ['Battery est. 91%', 'ok']], bid: 26300, fair: [25000, 29500], bids: 9, secs: 9 * 3600 + 50 * 60 }
+  ];
+  LOTS.forEach(function (l) { l.endsAt = now + l.secs * 1000; l.ended = false; l.extended = 0; });
+  var SRC_LABEL = { own: 'On TesBids', ebay: 'via eBay Motors', bat: 'via Bring a Trailer' };
+  var SRC_NAME = { ebay: 'eBay Motors', bat: 'Bring a Trailer' };
+  var HANDLES = ['frunkfull', 'kwh_kate', 'evdriver_tx', 'sparky88', 'regen_ryan', 'mile0', 'voltvalet', 'plaid_dad', 'quietcommute', 'hw4hunter'];
+
+  var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  var num = new Intl.NumberFormat('en-US');
+  function money(n) { return usd.format(n); }
+  function shortK(n) { return '$' + (Math.round(n / 100) / 10) + 'k'; }
+  function increment(bid) { return bid < 50000 ? 250 : bid < 100000 ? 500 : 1000; }
+  function fmtLeft(ms) {
+    if (ms <= 0) return 'Ended';
+    var s = Math.floor(ms / 1000), d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600), m = Math.floor(s % 3600 / 60), sec = s % 60;
+    if (d > 0) return d + 'd ' + h + 'h';
+    if (h > 0) return h + 'h ' + m + 'm';
+    return m + ':' + String(sec).padStart(2, '0');
+  }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  /* ================= Render lots ================= */
+  var lotsEl = document.getElementById('lots');
+  var filter = 'all';
+  function lotHTML(l) {
+    var ext = l.src !== 'own';
+    var checks = l.checks.map(function (c) { return '<li class="' + c[1] + '">' + esc(c[0]) + '</li>'; }).join('');
+    var action = ext
+      ? '<a class="btn btn-ghost btn-sm" href="' + l.url + '" target="_blank" rel="noopener">View on ' + SRC_NAME[l.src] + ' ↗</a>'
+      : '<button class="btn btn-primary btn-sm" type="button" data-bid="' + l.id + '">Place bid</button>';
+    return '<article class="lot" id="lot-' + l.id + '" data-src="' + (ext ? 'ext' : 'own') + '">' +
+      (l.img ? '<div class="lot-media"><img src="' + l.img + '" alt="" loading="lazy" onerror="this.parentNode.remove()"></div>' : '') +
+      '<div class="lot-top"><span class="lot-no">Lot ' + l.id + ' · sample</span><span class="src' + (ext ? '' : ' own') + '">' + SRC_LABEL[l.src] + '</span></div>' +
+      '<div class="lot-id">' +
+      '<div><h3><span class="yr">' + l.year + '</span> ' + esc(l.model) + '</h3><p class="meta">' + num.format(l.miles) + ' mi · ' + esc(l.paint) + ' · ' + l.state + '</p></div></div>' +
+      '<ul class="checks">' + checks + '</ul>' +
+      '<div class="bid-row"><div><span class="lbl" data-role="bidlbl">Current bid</span><strong class="bid mono" data-role="bid">' + money(l.bid) + '</strong></div>' +
+      '<div><span class="lbl" style="text-align:right">Ends in</span><strong class="timer mono" data-role="timer">' + fmtLeft(l.endsAt - Date.now()) + '</strong></div></div>' +
+      '<div class="fair"><div class="fair-top"><span>TeslaTracker fair value ' + shortK(l.fair[0]) + '–' + shortK(l.fair[1]).slice(1) + '</span><span class="fair-state" data-role="fairstate"></span></div>' +
+      '<div class="fair-track"><div class="fair-range" data-role="range"></div><div class="fair-mark" data-role="mark"></div></div></div>' +
+      '<div class="lot-foot"><span class="count" data-role="count">' + l.bids + ' bids</span>' + action + '</div>' +
+      '</article>';
+  }
+  function renderLots() {
+    var list = LOTS.filter(function (l) { return filter === 'all' || (filter === 'own' ? l.src === 'own' : l.src !== 'own'); });
+    lotsEl.innerHTML = list.length ? list.map(lotHTML).join('') : '<p class="empty">No auctions match this filter.</p>';
+    list.forEach(updateFair);
+    list.forEach(function (l) { if (l.ended) markEnded(l); });
+  }
+  function el(l, role) { var card = document.getElementById('lot-' + l.id); return card && card.querySelector('[data-role="' + role + '"]'); }
+  function updateFair(l) {
+    var lo = l.fair[0] * 0.85, hi = l.fair[1] * 1.15;
+    var pct = function (v) { return Math.max(0, Math.min(100, (v - lo) / (hi - lo) * 100)); };
+    var range = el(l, 'range'), mark = el(l, 'mark'), st = el(l, 'fairstate');
+    if (!range) return;
+    range.style.left = pct(l.fair[0]) + '%';
+    range.style.width = (pct(l.fair[1]) - pct(l.fair[0])) + '%';
+    mark.style.left = pct(l.bid) + '%';
+    var state = l.bid < l.fair[0] ? ['below', 'Below fair value'] : l.bid > l.fair[1] ? ['above', 'Above fair value'] : ['in', 'Within fair value'];
+    st.className = 'fair-state ' + state[0];
+    st.textContent = state[1];
+  }
+  function markEnded(l) {
+    var card = document.getElementById('lot-' + l.id);
+    if (!card) return;
+    card.classList.add('ended');
+    var t = el(l, 'timer'); if (t) { t.textContent = 'Ended'; t.classList.remove('soon'); }
+    var lbl = el(l, 'bidlbl'); if (lbl) lbl.textContent = 'Sold for';
+    var btn = card.querySelector('[data-bid]');
+    if (btn) { btn.outerHTML = '<span class="sold-tag">Sold</span>'; }
+  }
+  document.querySelectorAll('[data-filter]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      filter = b.dataset.filter;
+      document.querySelectorAll('[data-filter]').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      renderLots();
+    });
+  });
+  renderLots();
+  document.getElementById('liveCount').textContent = LOTS.length + ' live auctions';
+
+  /* ================= Ticker ================= */
+  var tickerList = document.getElementById('tickerList');
+  var tickerItems = [];
+  function pushTicker(who, l, amount, mine) {
+    tickerItems.unshift({ who: who, l: l, amount: amount, at: Date.now(), mine: mine });
+    tickerItems = tickerItems.slice(0, 4);
+    tickerList.innerHTML = tickerItems.map(function (t) {
+      return '<li><span class="who">' + (t.mine ? 'You' : '@' + esc(t.who)) + '</span><span class="amt mono">' + money(t.amount) + '</span>' +
+        '<span class="what">' + t.l.year + ' ' + esc(t.l.model) + ' · Lot ' + t.l.id + '</span></li>';
+    }).join('');
+  }
+  // Seed with a few recent bids
+  [[5, 'plaid_dad'], [0, 'hw4hunter'], [2, 'kwh_kate'], [1, 'evdriver_tx']].forEach(function (s) {
+    var l = LOTS[s[0]]; tickerItems.push({ who: s[1], l: l, amount: l.bid, at: Date.now() });
+  });
+  pushTicker('frunkfull', LOTS[1], LOTS[1].bid);
+
+  /* ================= Bidding ================= */
+  function applyBid(l, amount, who, mine) {
+    l.bid = amount; l.bids += 1;
+    var left = l.endsAt - Date.now();
+    var extendedNow = false;
+    if (left < 120000) { l.endsAt = Date.now() + 120000; l.extended += 1; extendedNow = true; }
+    var card = document.getElementById('lot-' + l.id);
+    if (card) {
+      var b = el(l, 'bid');
+      b.textContent = money(amount);
+      b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump');
+      el(l, 'count').textContent = l.bids + ' bids';
+      card.classList.remove('flash'); void card.offsetWidth; card.classList.add('flash');
+      updateFair(l);
+      if (extendedNow) {
+        var t = el(l, 'timer');
+        var tag = document.createElement('span'); tag.className = 'ext'; tag.textContent = '+2:00';
+        t.parentNode.querySelector('.lbl').appendChild(tag);
+        setTimeout(function () { tag.remove(); }, 2500);
+      }
+    }
+    pushTicker(who, l, amount, mine);
+    if (fluid) fluid.bidWave(mine ? 1.6 : 1);
+  }
+
+  function simulateBid() {
+    var live = LOTS.filter(function (l) { return !l.ended && l.src === 'own'; });
+    var ext = LOTS.filter(function (l) { return !l.ended && l.src !== 'own'; });
+    var pool = live.concat(ext);
+    if (!pool.length) return;
+    // Ending-soon lots attract more bids, but stop after a few extensions so they can close.
+    var soon = live.filter(function (l) { return l.endsAt - Date.now() < 10 * 60000 && l.extended < 3; });
+    var l = soon.length && Math.random() < 0.55 ? soon[0] : pool[Math.floor(Math.random() * pool.length)];
+    if (l.extended >= 3 && l.endsAt - Date.now() < 120000) return;
+    var steps = 1 + (Math.random() < 0.25 ? 1 : 0);
+    var amount = l.bid;
+    for (var i = 0; i < steps; i++) amount += increment(amount);
+    applyBid(l, amount, HANDLES[Math.floor(Math.random() * HANDLES.length)], false);
+  }
+  (function schedule() {
+    setTimeout(function () { simulateBid(); schedule(); }, 2800 + Math.random() * 3200);
+  })();
+
+  /* ================= Timers ================= */
+  var resultsBody = document.getElementById('resultsBody');
+  var clock = document.getElementById('clock');
+  setInterval(function () {
+    var t = Date.now();
+    clock.textContent = new Date(t).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    LOTS.forEach(function (l) {
+      if (l.ended) return;
+      var left = l.endsAt - t;
+      var timer = el(l, 'timer');
+      if (timer) { timer.textContent = fmtLeft(left); timer.classList.toggle('soon', left < 10 * 60000); }
+      if (left <= 0) {
+        l.ended = true;
+        markEnded(l);
+        addResult({ car: l.year + ' ' + l.model, extras: l.checks.filter(function (c) { return c[1] === 'ok'; }).slice(0, 2).map(function (c) { return c[0]; }).join(', '), miles: l.miles, price: l.bid, sold: true, when: 'Just now' }, true);
+        toast('Lot ' + l.id + ' sold for ' + money(l.bid));
+        if (fluid) fluid.burst(8);
+        var remaining = LOTS.filter(function (x) { return !x.ended; }).length;
+        document.getElementById('liveCount').textContent = remaining + ' live auctions';
+      }
+    });
+  }, 1000);
+
+  /* ================= Results table ================= */
+  var RESULTS = [
+    { car: '2024 Cybertruck Foundation Series', extras: 'FSD included, HW4', miles: 4100, price: 78500, sold: true, when: '2 days ago' },
+    { car: '2021 Model S Plaid', extras: 'FSD purchased', miles: 33800, price: 52250, sold: true, when: '3 days ago' },
+    { car: '2016 Model X P90D Founders', extras: 'Free Supercharging, transfers', miles: 71200, price: 38000, sold: false, when: '5 days ago' },
+    { car: '2023 Model Y Long Range', extras: 'FSD purchased, HW3', miles: 18900, price: 29750, sold: true, when: '6 days ago' },
+    { car: '2014 Model S P85', extras: 'Free Supercharging, transfers', miles: 102400, price: 17500, sold: true, when: '1 week ago' }
+  ];
+  function rowHTML(r) {
+    return '<td>' + esc(r.car) + '</td><td>' + esc(r.extras) + '</td><td class="num mono">' + num.format(r.miles) + '</td>' +
+      '<td class="num mono">' + money(r.price) + '</td><td><span class="pill ' + (r.sold ? 'sold' : 'nr') + '">' + (r.sold ? 'Sold' : 'Reserve not met') + '</span></td><td>' + r.when + '</td>';
+  }
+  function addResult(r, fresh) {
+    var tr = document.createElement('tr');
+    tr.innerHTML = rowHTML(r);
+    if (fresh) { tr.className = 'fresh'; resultsBody.insertBefore(tr, resultsBody.firstChild); }
+    else resultsBody.appendChild(tr);
+  }
+  RESULTS.forEach(function (r) { addResult(r, false); });
+
+  /* ================= Bid modal ================= */
+  var modalRoot = document.getElementById('modalRoot');
+  var lastFocus = null;
+  function closeModal() { modalRoot.innerHTML = ''; if (lastFocus) lastFocus.focus(); }
+  function openBid(l) {
+    lastFocus = document.activeElement;
+    var min = l.bid + increment(l.bid);
+    modalRoot.innerHTML =
+      '<div class="modal-bg" data-close>' +
+      '<div class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">' +
+      '<h3 id="mTitle">Bid on ' + l.year + ' ' + esc(l.model) + '</h3>' +
+      '<p class="meta">Lot ' + l.id + ' · current bid <span class="mono" id="mCur">' + money(l.bid) + '</span> · minimum next bid <span class="mono" id="mMin">' + money(min) + '</span></p>' +
+      '<label class="lbl" for="bidAmt">Your bid</label>' +
+      '<div class="bid-input"><span>$</span><input id="bidAmt" inputmode="numeric" autocomplete="off" value="' + num.format(min) + '"></div>' +
+      '<div class="quick"><button type="button" class="chip-btn" data-add="1">+' + money(increment(l.bid)) + '</button><button type="button" class="chip-btn" data-add="4">+' + money(increment(l.bid) * 4) + '</button><button type="button" class="chip-btn" data-add="10">+' + money(increment(l.bid) * 10) + '</button></div>' +
+      '<p class="err" id="bidErr"></p>' +
+      '<p class="fee">If you win, the <strong>5% buyer fee</strong> is <strong class="mono" id="feeAmt"></strong>, charged to your card. You pay the seller through escrow. A bid in the last 2 minutes resets the clock to 2:00.</p>' +
+      '<div class="modal-actions"><button type="button" class="btn btn-ghost" data-close>Cancel</button><button type="button" class="btn btn-primary" id="bidGo">Place bid</button></div>' +
+      '<p class="note" style="margin:12px 0 0">Prototype. No real bid is placed.</p>' +
+      '</div></div>';
+    var input = document.getElementById('bidAmt');
+    var err = document.getElementById('bidErr');
+    var feeAmt = document.getElementById('feeAmt');
+    var go = document.getElementById('bidGo');
+    function val() { return parseInt(String(input.value).replace(/[^0-9]/g, ''), 10) || 0; }
+    function refresh() {
+      var v = val();
+      var fee = Math.min(7500, Math.max(250, Math.round(v * 0.05)));
+      feeAmt.textContent = money(fee);
+      go.textContent = 'Place bid ' + money(v);
+      err.textContent = '';
+    }
+    input.addEventListener('input', refresh);
+    modalRoot.querySelectorAll('[data-add]').forEach(function (b) {
+      b.addEventListener('click', function () { input.value = num.format(l.bid + increment(l.bid) * parseInt(b.dataset.add, 10)); refresh(); });
+    });
+    modalRoot.querySelectorAll('[data-close]').forEach(function (x) {
+      x.addEventListener('click', function (e) { if (e.target === x) closeModal(); });
+    });
+    go.addEventListener('click', function () {
+      var need = l.bid + increment(l.bid);
+      var v = val();
+      if (l.ended) { err.textContent = 'This auction has ended.'; return; }
+      if (v < need) {
+        err.textContent = 'Bid at least ' + money(need) + '. Someone may have bid while this was open.';
+        document.getElementById('mCur').textContent = money(l.bid);
+        document.getElementById('mMin').textContent = money(need);
+        return;
+      }
+      applyBid(l, v, 'you', true);
+      closeModal();
+      toast("Bid placed. You're the high bidder at " + money(v) + '.');
+    });
+    refresh();
+    input.focus();
+    input.select();
+  }
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modalRoot.firstChild) closeModal(); });
+  lotsEl.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-bid]');
+    if (!b) return;
+    var l = LOTS.find(function (x) { return x.id === b.dataset.bid; });
+    if (l) openBid(l);
+  });
+
+  /* ================= Toast ================= */
+  var toastEl = document.getElementById('toast'), toastT;
+  function toast(msg) {
+    toastEl.textContent = msg; toastEl.hidden = false;
+    clearTimeout(toastT); toastT = setTimeout(function () { toastEl.hidden = true; }, 3200);
+  }
+
+  /* ================= Seller calculator ================= */
+  var EXTRAS = {
+    fsd: { label: 'Purchased FSD', lo: 3000, hi: 6000 },
+    sc: { label: 'Transferable free Supercharging', lo: 1000, hi: 2000 },
+    ed: { label: 'Founders, Signature or Foundation Series', lo: 5000, hi: 15000 }
+  };
+  var sellModel = document.getElementById('sellModel');
+  var optFsd = document.getElementById('optFsd'), optSc = document.getElementById('optSc'), optEd = document.getElementById('optEd');
+  function kfmt(n) { return '$' + (n / 1000).toFixed(n % 1000 ? 1 : 0) + 'k'; }
+  function updateSell() {
+    var m = sellModel.value;
+    var scOk = m === 'S' || m === 'X';
+    var edOk = m !== '3' && m !== 'Y';
+    var fsdOk = m !== 'R';
+    [[optSc, scOk, 'tSc'], [optEd, edOk, 'tEd'], [optFsd, fsdOk, 'tFsd']].forEach(function (x) {
+      x[0].disabled = !x[1]; if (!x[1]) x[0].checked = false;
+      document.getElementById(x[2]).classList.toggle('disabled', !x[1]);
+    });
+    var picked = [];
+    if (optFsd.checked) picked.push(EXTRAS.fsd);
+    if (optSc.checked) picked.push(EXTRAS.sc);
+    if (optEd.checked) picked.push(EXTRAS.ed);
+    var lo = picked.reduce(function (s, e) { return s + e.lo; }, 0), hi = picked.reduce(function (s, e) { return s + e.hi; }, 0);
+    document.getElementById('sellUp').textContent = picked.length ? '+' + kfmt(lo) + '–' + kfmt(hi).slice(1) : '$0';
+    document.getElementById('sellBreak').innerHTML = picked.length
+      ? picked.map(function (e) { return '<li><span>' + e.label + '</span><span class="mono">+' + kfmt(e.lo) + '–' + kfmt(e.hi).slice(1) + '</span></li>'; }).join('')
+      : '<li><span>No extras selected</span><span>An auction can still beat a trade-in on price.</span></li>';
+  }
+  [sellModel, optFsd, optSc, optEd].forEach(function (x) { x.addEventListener('change', updateSell); });
+  updateSell();
+  document.getElementById('sellCta').addEventListener('click', function () { toast('Seller sign-up comes next. This prototype stops here.'); });
+
+  /* ================= Price sparkline ================= */
+  (function () {
+    var svg = document.getElementById('spark');
+    var pts = [67200, 66900, 66900, 66100, 65800, 65800, 64900, 64500, 64500, 63900, 63200, 63400, 62800, 62500, 61900];
+    var W = 560, H = 120, pad = { l: 8, r: 64, t: 12, b: 12 };
+    var lo = 60000, hi = 68000;
+    var x = function (i) { return pad.l + i / (pts.length - 1) * (W - pad.l - pad.r); };
+    var y = function (v) { return pad.t + (hi - v) / (hi - lo) * (H - pad.t - pad.b); };
+    var line = pts.map(function (v, i) { return (i ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(v).toFixed(1); }).join(' ');
+    var area = line + ' L' + x(pts.length - 1).toFixed(1) + ' ' + (H - pad.b) + ' L' + x(0).toFixed(1) + ' ' + (H - pad.b) + ' Z';
+    var grid = [62000, 64000, 66000].map(function (v) {
+      return '<line x1="' + pad.l + '" x2="' + (W - pad.r) + '" y1="' + y(v) + '" y2="' + y(v) + '" stroke="var(--line)" stroke-width="1"/>' +
+        '<text x="' + (W - pad.r + 8) + '" y="' + (y(v) + 4) + '" fill="var(--muted)" font-size="11" font-family="JetBrains Mono, monospace">$' + v / 1000 + 'k</text>';
+    }).join('');
+    var ex = x(pts.length - 1), ey = y(pts[pts.length - 1]);
+    svg.innerHTML = grid +
+      '<path d="' + area + '" fill="var(--accent)" fill-opacity="0.12"/>' +
+      '<path d="' + line + '" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>' +
+      '<circle cx="' + ex + '" cy="' + ey + '" r="5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/>';
+    document.getElementById('sparkRange').textContent = money(pts[0]) + ' → ' + money(pts[pts.length - 1]);
+  })();
+})();
+</script>
+</body>
+</html>
